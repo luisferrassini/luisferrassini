@@ -1,16 +1,24 @@
-### Hi there 👋
+# README
 
-<!--
-**luisferrassini/luisferrassini** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Here are some ideas to get you started:
+Things you may want to cover:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
