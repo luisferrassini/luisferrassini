@@ -1,7 +1,11 @@
 # Luís Ferrassini
-QA Analyst
+
+Full Stack Developer | QA Analyst | Machine Learning Enthusiast
+
 29 years
+
 lferrassini@gmail.com
+
 Brazil, São Paulo, Ribeirão Preto
 
 ## EXPERIENCE
