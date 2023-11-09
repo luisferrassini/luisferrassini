@@ -9,7 +9,7 @@ lferrassini@gmail.com
 Brazil, São Paulo, Ribeirão Preto
 
 ## EXPERIENCE
-### Moat Builders, Remote — QA Analyst
+### Moat Builders, Remote — Ruby on Rails Developer
 AUG 2021 - PRESENT
 
 Member of an autonomous team of elite coders providing high-performance software development services to small and medium-sized businesses.
