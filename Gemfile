@@ -70,3 +70,5 @@ gem 'tailwindcss-rails', '~> 2.3'
 
 gem 'httparty'
 gem 'nokogiri'
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
