@@ -1,40 +1,13 @@
 <div id="app">
   <div class="pl-4 pr-4">
     <div class="center-flex">
-      <div id="terminal" onclick="focusInput()">
+      <div ref="terminal" id="terminal" @click="focusInput">
         <div v-for="line in lines">{{ line }}</div>
-        > <input id="terminal-input" type="text" v-model="input" @keyup.enter="processCommand">
+        > <input ref="terminalInput" id="terminal-input" type="text" v-model="input" @keyup.enter="processCommand" @keyup.up="inputUp()" @keyup.down="inputDown()">
       </div>
     </div>
   </div>
 </div>
-<script>
-  function focusInput() {
-     document.getElementById("terminal-input").focus();
-  }
-  function openNewBackgroundTab(url){
-    window.open(window.location.href);
-    window.location = url;
-    //close the page
-    window.close();
-  }
-  const scrollToBottom = () => {
-    const element = document.getElementById('terminal');
-    element.scrollTop = element.scrollHeight;
-  }
-  async function fetchRandomFact() {
-    var response = '';
-    await fetch("/api/random_fact")
-      .then(response => response.json())
-      .then(data => {
-        response = data.fact;
-      })
-      .catch(error => {
-        console.error("Error fetching random fact:", error);
-      });
-      return response;
-  }
-</script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script>
   new Vue({
@@ -42,66 +15,131 @@
     data: {
       lines: [],
       input: '',
-      randomFact: ''
+      randomFact: '',
+      commands: [],
+      commandsIndex: 0
     },
     created() {
-        // Retrieve terminal history from localStorage
-        const terminalHistory = localStorage.getItem('terminalHistory');
-        if (terminalHistory) {
-          this.lines = JSON.parse(terminalHistory);
-          console.log(this.lines.length)
-          if(this.lines.length == 0) {
-            this.lines.push('Welcome to Luís Ferrassini\'s Terminal!');
-            this.lines.push('Type "help" for a list of commands.');
-          }
-        } else {
-          // Initialize with default welcome message
+      // Retrieve terminal history from localStorage
+      const terminalHistory = localStorage.getItem('terminalHistory');
+      const terminalCommands = localStorage.getItem('terminalCommands');
+      if (terminalHistory) {
+        this.lines = JSON.parse(terminalHistory);
+        if (this.lines.length === 0) {
           this.lines.push('Welcome to Luís Ferrassini\'s Terminal!');
           this.lines.push('Type "help" for a list of commands.');
         }
-      },
-    methods: {
-      async processCommand() {
-        const command = this.input.trim().toLowerCase();
-        this.lines.push('> ' +command);
+      } else {
+        // Initialize with default welcome message
+        this.lines.push('Welcome to Luís Ferrassini\'s Terminal!');
+        this.lines.push('Type "help" for a list of commands.');
+      }
 
-        switch(command) {
-          case 'help':
+      if (terminalCommands) {
+        this.commands = JSON.parse(terminalCommands);
+      } else {
+        localStorage.setItem('terminalCommands', JSON.stringify(this.commands));
+      }
+
+      this.commandsIndex = 0;
+    },
+    methods: {
+      focusInput() {
+        this.$refs.terminalInput.focus();
+      },
+      async fetchRandomFact() {
+        try {
+          const response = await fetch("/api/random_fact");
+          const data = await response.json();
+          this.randomFact = data.fact;
+        } catch (error) {
+          console.error("Error fetching random fact:", error);
+        }
+      },
+      openNewBackgroundTab(url) {
+        window.open(url);
+        window.open('', '_self').close();
+      },
+      scrollToBottom() {
+        this.$refs.terminal.scrollTop = this.$refs.terminal.scrollHeight;
+      },
+      processCommand() {
+        const command = this.input.trim().toLowerCase();
+        this.lines.push('> ' + command);
+        this.commands.push(command);
+        this.input = '';
+
+        const commandActions = {
+          help: () => {
             this.lines.push('Available commands:');
             this.lines.push('- help: Show this message');
             this.lines.push('- clear: Clear the terminal');
-            break;
-          case 'clear':
+            this.lines.push('- random: Show a random fact');
+            this.lines.push('- linkedin: Opens Luís Ferrassini\'s LinkedIn in another tab');
+            this.lines.push('- github: Opens Luís Ferrassini\'s Github in another tab');
+          },
+          clear: () => {
+            this.lines = ['Welcome to Luís Ferrassini\'s Terminal!', 'Type "help" for a list of commands.'];
+          },
+          linkedin: () => {
+            this.lines.push('Opening Luís Ferrassini\'s LinkedIn on another tab..');
+            this.openNewBackgroundTab('https://www.linkedin.com/in/luisferrassini/');
+          },
+          github: () => {
+            this.lines.push('Opening Luís Ferrassini\'s GitHub on another tab..');
+            this.openNewBackgroundTab('https://github.com/luisferrassini');
+          },
+          cv: () => {
+            this.lines.push('Opening Luís Ferrassini\'s CV in another tab..');
+            this.openNewBackgroundTab('/about_me');
+          },
+          random: async () => {
+            this.lines.push(await this.fetchRandomFact());
+          },
+          hello: () => {
+            this.lines.push('Hi!');
+          },
+          hi: () => {
+            this.lines.push('Hello!');
+          },
+          reset: () => {
             this.lines = [];
+            this.input = '';
+            this.randomFact = '';
+            this.commands = [];
+            this.commandsIndex = 0;
             this.lines.push('Welcome to Luís Ferrassini\'s Terminal!');
             this.lines.push('Type "help" for a list of commands.');
-            break;
-          case 'linkedin':
-            this.lines.push('Opening Luís Ferrassini\'s LinkedIn on another tab..');
-            await setTimeout(openNewBackgroundTab('https://www.linkedin.com/in/luisferrassini/'), 2000);
-            break;
-          case 'cv':
-            this.lines.push('Opening Luís Ferrassini\'s CV on another tab..');
-            await setTimeout(openNewBackgroundTab('/about_me'), 2000);
-            break;
-          case 'random':
-            this.lines.push(await fetchRandomFact());
-            break;
-          default:
+          },
+          default: () => {
             this.lines.push('Command not found. Type "help" for available commands.');
-        }
+          }
+        };
+
+        // Execute the corresponding action for the command or use the default action
+        (commandActions[command] || commandActions.default)();
 
         // Save terminal history to localStorage
         localStorage.setItem('terminalHistory', JSON.stringify(this.lines));
-
-        this.input = '';
-        await setTimeout(scrollToBottom, 100)
+        localStorage.setItem('terminalCommands', JSON.stringify(this.commands));
+        this.commandsIndex = 0;
+        this.scrollToBottom();
+      },
+      inputUp() {
+        if (this.commands.length - this.commandsIndex > 0) {
+          this.input = this.commands[this.commands.length - this.commandsIndex - 1];
+          this.commandsIndex++;
+        }
+      },
+      inputDown() {
+        if (this.commandsIndex > 0) {
+          this.input = this.commands[this.commands.length - this.commandsIndex + 1];
+          this.commandsIndex--;
+        }
       }
     },
-    mounted: function () {
-      this.$nextTick(function () {
-        focusInput();
-      })
+    mounted() {
+      this.focusInput();
     }
   });
 </script>
