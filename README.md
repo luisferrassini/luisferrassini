@@ -2,9 +2,9 @@
 
 Senior Full Stack Developer | Machine Learning Enthusiast
 
-30 years old
-
 lferrassini@gmail.com
+
+https://luisferrassini.fly.dev
 
 Brazil, São Paulo, Ribeirão Preto
 
