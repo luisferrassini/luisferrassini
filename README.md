@@ -33,7 +33,7 @@ vpEventos (now 4.events) is a startup that offers an online complete platform fo
 
 ### Centro Universitário Barão de Mauá/USP
 Bachelor in Computer Science
-FEB 2018 - JULY 2021
+FEB 2018 - JUL 2021
 
 ## SKILLS
 
