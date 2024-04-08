@@ -1,6 +1,6 @@
 # Luís Ferrassini
 
-Senior Full Stack Developer | Machine Learning Enthusiast
+Full Stack Developer
 
 lferrassini@gmail.com
 
