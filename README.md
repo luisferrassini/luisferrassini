@@ -4,8 +4,6 @@ Senior Full Stack Developer | Machine Learning Enthusiast
 
 lferrassini@gmail.com
 
-https://luisferrassini.fly.dev
-
 Brazil, São Paulo, Ribeirão Preto
 
 ## EXPERIENCE
