@@ -7,7 +7,7 @@ lferrassini@gmail.com
 Brazil, São Paulo, Ribeirão Preto
 
 ## EXPERIENCE
-### EZOps Cloud, Remote — Ruby on Rails Developer
+### EZOps Cloud, Remote — Fullstack Developer
 MAY 2024 - Present
 
 ### Moat Builders, Remote — Ruby on Rails Developer
