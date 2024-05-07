@@ -7,7 +7,10 @@ lferrassini@gmail.com
 Brazil, São Paulo, Ribeirão Preto
 
 ## EXPERIENCE
-### Moat Builders, Remote — Senior Ruby on Rails Developer
+### EZOps Cloud, Remote — Ruby on Rails Developer
+MAY 2024 - Present
+
+### Moat Builders, Remote — Ruby on Rails Developer
 AUG 2021 - OCT 2023
 
 - Developed and maintained the booking app used by Vitalwork using Ruby on Rails, Vue.js, MySQL, Docker, Node.js;
