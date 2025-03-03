@@ -10,6 +10,11 @@ Brazil, São Paulo, Ribeirão Preto
 ### EZOps Cloud, Remote — Fullstack Developer
 MAY 2024 - Present
 
+Several projects including:
+- React Native app with a Ruby on Rails backend;
+- Ruby on Rails project for generating static interactive math lessons;
+- Nodejs backend for a blockchain project.
+
 ### Moat Builders, Remote — Ruby on Rails Developer
 AUG 2021 - OCT 2023
 
@@ -39,22 +44,18 @@ Bachelor in Computer Science
 FEB 2018 - JUL 2021
 
 ## SKILLS
-
 Ruby on Rails
 PHP/Laravel/Symfony
 JavaScript/TypeScript
-Python
-Java
+React/React Native
 SQL/MySQL/PostgreSQL
 Vue.JS
-Node.js/Express
-Tailwind CSS
-React
+Node.js/Express/Deno
+Tailwind CSS/
 Docker/Kubernetes
 Cucumber/Selenium
-Google Cloud
-Firebase
-Git
+Google Cloud/AWS
+Git/Git Flow
 
 ## LANGUAGES
 Native Portuguese
