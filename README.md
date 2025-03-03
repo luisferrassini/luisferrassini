@@ -44,6 +44,7 @@ Bachelor in Computer Science
 FEB 2018 - JUL 2021
 
 ## SKILLS
+
 Ruby on Rails
 PHP/Laravel/Symfony
 JavaScript/TypeScript
