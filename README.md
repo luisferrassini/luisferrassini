@@ -8,7 +8,7 @@ Brazil, São Paulo, Ribeirão Preto
 
 ## EXPERIENCE
 ### EZOps Cloud, Remote — Fullstack Developer
-MAY 2024 - Present
+MAY 2024 - PRESENT
 
 Several projects including:
 - React Native app with a Ruby on Rails backend;
@@ -44,23 +44,22 @@ Bachelor in Computer Science
 FEB 2018 - JUL 2021
 
 ## SKILLS
-
-Ruby on Rails
-PHP/Laravel/Symfony
-JavaScript/TypeScript
-React/React Native
-SQL/MySQL/PostgreSQL
-Vue.JS
-Node.js/Express/Deno
-Tailwind CSS/
-Docker/Kubernetes
-Cucumber/Selenium
-Google Cloud/AWS
-Git/Git Flow
+- Ruby on Rails
+- PHP/Laravel/Symfony
+- JavaScript/TypeScript
+- React/React Native
+- SQL/MySQL/PostgreSQL
+- Vue.JS
+- Node.js/Express/Deno
+- Tailwind CSS/
+- Docker/Kubernetes
+- Cucumber/Selenium
+- Google Cloud/AWS
+- Git/Git Flow
 
 ## LANGUAGES
-Native Portuguese
-Fluent English
+- Native Portuguese
+- Fluent English
 
 ## LINKS
 ### LinkedIn
